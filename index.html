@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Love Festival - Sara & Sergio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('WhatsApp Image 2025-07-07 at 13.29.06.jpeg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      font-family: Arial, sans-serif;
+    }
+    .buttons {
+      margin: 5vh 0;
+      text-align: center;
+      width: 90%;
+    }
+    .buttons a, .countdown {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 25px;
+      margin: 10px;
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 5vw;
+      max-width: 90%;
+    }
+    @media (min-width: 768px) {
+      .buttons a, .countdown {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="buttons">
+    <a href="https://www.google.com/maps/place/Fuentearcos" target="_blank">Ver ubicación</a>
+    <div class="countdown" id="countdown"></div>
+  </div>
+  <script>
+    const countdown = document.getElementById('countdown');
+    const eventDate = new Date('2026-09-05T20:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        countdown.innerHTML = "¡Es hoy!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdown.innerHTML = ${days} días ${hours}h ${minutes}m ${seconds}s;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
